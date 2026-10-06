@@ -4,7 +4,7 @@ Um sistema open-source impulsionado por Inteligência Artificial (YOLOv11) desen
 
 ## 📖 O que é este projeto e qual o seu intuito?
 
-Na pesquisa de Ciência dos Materiais e Engenharia, medir o diâmetro de dezoito, cinquenta ou centenas de fibras em imagens de MEV é um processo extremamente tedioso, repetitivo e manual. Pesquisadores perdem horas utilizando softwares genéricos de imagem para traçar retas e fazer médias.
+Na pesquisa de Ciência dos Materiais e Engenharia, medir o diâmetro de dezenas ou centenas de fibras em imagens de MEV é um processo extremamente tedioso, repetitivo e manual. Pesquisadores perdem horas utilizando softwares genéricos de imagem para traçar retas e fazer médias.
 
 O **AI MEV Fiber Analyzer** foi criado para resolver esse problema. O intuito é **automatizar 100% da medição**. Você insere uma imagem (ou uma pasta com centenas delas) e o sistema faz tudo sozinho: ele lê a escala geométrica da foto, encontra cada fibra, calcula as medidas matemáticas reais (em micrômetros) e gera um relatório estatístico completo em segundos.
 
