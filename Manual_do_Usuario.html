@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual do Usuário - Sistema de Análise de Fibras em MEV</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            margin: 40px auto; 
+            max-width: 800px; 
+            color: #333; 
+            padding: 0 20px;
+        }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 10px; 
+        }
+        h2 { 
+            color: #2980b9; 
+            margin-top: 30px; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 { color: #34495e; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 20px; }
+        li { margin-bottom: 8px; }
+        .note { 
+            background-color: #f1f8ff; 
+            padding: 15px; 
+            border-left: 4px solid #3498db; 
+            margin: 20px 0;
+        }
+        code { 
+            background-color: #f4f4f4; 
+            padding: 2px 5px; 
+            border-radius: 4px; 
+            font-family: monospace; 
+            font-size: 14px;
+        }
+        .comando {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔬 Sistema de Análise de Fibras em MEV (IA)</h1>
+
+    <p>Bem-vindo(a) ao <strong>Sistema Automático de Medição de Fibras</strong>. Este projeto foi desenvolvido para analisar imagens de Microscopia Eletrônica de Varredura (MEV), encontrar as fibras automaticamente usando Inteligência Artificial (IA) e medir a espessura delas de forma extremamente rápida.</p>
+
+    <p>Este manual foi escrito de forma simples para que qualquer pessoa consiga usar, entender e até mesmo melhorar a Inteligência Artificial no futuro!</p>
+
+    <h2>🚀 1. Como Iniciar o Programa</h2>
+
+    <p>Para ligar o sistema, você <strong>não precisa saber programar</strong>. Siga apenas estes passos:</p>
+
+    <ol>
+        <li>Abra a pasta do projeto (<code>PROJETO_MATERIAIS</code>) no seu computador.</li>
+        <li>Dê <strong>dois cliques</strong> no arquivo chamado <code>INICIAR_PROGRAMA.bat</code>.</li>
+        <li>Uma tela preta vai aparecer (não se assuste, é o motor do programa ligando). Em poucos segundos, uma página vai se abrir automaticamente no seu navegador de internet (geralmente no endereço <code>http://localhost:8501</code>).</li>
+        <li><strong>Pronto!</strong> O sistema está rodando.</li>
+    </ol>
+    <div class="note">
+        <strong>Importante:</strong> Não feche a tela preta enquanto estiver usando o programa, pois ela é o motor que mantém o site no ar.
+    </div>
+
+    <h2>📊 2. Como Usar o Sistema</h2>
+
+    <p>Na tela do aplicativo, você verá opções muito simples no menu lateral esquerdo:</p>
+
+    <ul>
+        <li><strong>Imagem Única:</strong> Use esta opção se quiser enviar apenas uma foto para ver o resultado na tela imediatamente. Você pode enviar a foto e o programa vai:
+            <ul>
+                <li>Ler a barra de escala lá embaixo na foto.</li>
+                <li>Pintar as fibras de verde e azul.</li>
+                <li>Gerar gráficos e tabelas com as espessuras.</li>
+                <li>Liberar um botão para baixar um <strong>Relatório em PDF</strong> e a planilha em <strong>Excel</strong>.</li>
+            </ul>
+        </li>
+        <li><strong>Lote (Macarrão):</strong> Use esta opção se você tiver uma pasta inteira cheia de fotos e quiser analisar todas elas de uma vez só! Basta digitar o caminho da pasta e ele vai trabalhar sozinho e gerar um Excel gigante com o resumo de tudo.</li>
+    </ul>
+
+    <h2>🧠 3. Como o Sistema Funciona (Sem complicações)</h2>
+
+    <p>Como o computador consegue olhar para uma imagem e medir as fibras? Ele faz isso em três grandes etapas:</p>
+
+    <ol>
+        <li><strong>A IA lê a foto (YOLOv11):</strong> Nós ensinamos uma IA a reconhecer dois objetos: <strong>Fibras</strong> e a <strong>Barra de Escala</strong>. Ela olha a foto e recorta onde estão esses itens.</li>
+        <li><strong>O leitor de texto (OCR):</strong> A máquina pega o recorte da barra de escala, lê o número que está escrito ali (ex: 1 µm) e calcula exatamente qual é o tamanho real de cada pixel da imagem.</li>
+        <li><strong>A régua matemática (Esqueletização):</strong> Com as fibras pintadas pela IA, um algoritmo matemático entra em ação. Ele desenha uma "espinha dorsal" no meio de cada fibra e mede a distância do meio até as bordas. É assim que ele calcula a espessura sem errar.</li>
+    </ol>
+
+    <h2>🎓 4. Como "Ensinar" a IA e Atualizar o Banco de Dados</h2>
+
+    <p>Se você notar que a IA está errando (esquecendo de marcar algumas fibras, ou errando a leitura da barra de escala), significa que ela <strong>precisa estudar mais</strong>. Para deixá-la mais inteligente, siga estes passos:</p>
+
+    <h3>Passo A: Enviar novas fotos para o Roboflow</h3>
+    <p>O <strong>Roboflow</strong> é o site onde criamos o "gabarito" para a IA estudar.</p>
+    <ol>
+        <li>Acesse seu projeto no site do Roboflow.</li>
+        <li>Suba novas fotos (faça o upload de imagens de MEV inéditas).</li>
+    </ol>
+
+    <h3>Passo B: Fazer o Contorno (Anotação)</h3>
+    <p>Você precisa desenhar nas fotos para ensinar a máquina.</p>
+    <ul>
+        <li><strong>Barra de Escala:</strong> Crie a classe exatamente com o nome <strong>ScaleBar</strong> e desenhe um Retângulo englobando a barra preta e o número.</li>
+        <li><strong>Fibras:</strong> Crie a classe exatamente com o nome <strong>Fiber</strong> e desenhe Polígonos ao redor das fibras.</li>
+        <li><strong>⚠️ Nomes Obrigatórios:</strong> O computador procura por esses nomes exatos em inglês (<em>ScaleBar</em> e <em>Fiber</em>). Se você digitar "Fibra" ou "Escala", ele não vai conseguir ler no aplicativo!</li>
+        <li><strong>Dica de Ouro:</strong> Não contorne calombos pequenos ou sujeiras. Desenhe o contorno acompanhando o tubo da fibra da forma mais lisa possível.</li>
+        <li><strong>Outra Dica:</strong> Se a foto for um emaranhado muito confuso, anote a barra de escala e contorne pelo menos umas 5 fibras claras na foto, ignorando as muito borradas.</li>
+    </ul>
+
+    <h3>Passo C: Baixar o "Gabarito" Atualizado</h3>
+    <ol>
+        <li>No Roboflow, após anotar as fotos, clique em <strong>Add to Dataset</strong>.</li>
+        <li>Vá no menu esquerdo e clique em <strong>Versions</strong> (ou Generate).</li>
+        <li>Clique em <strong>Generate New Version</strong> para criar o pacote atualizado.</li>
+        <li>Clique em <strong>Export Dataset</strong>, escolha o formato <strong>YOLOv8</strong> (ou YOLOv11) e escolha <strong>Download zip to computer</strong>.</li>
+        <li>Extraia (descompacte) o arquivo <code>.zip</code> baixado dentro da pasta <code>dataset/</code> aqui no projeto. Apague a versão velha e deixe só a nova.</li>
+    </ol>
+
+    <h3>Passo D: Treinar a nova versão da IA</h3>
+    <ol>
+        <li>Volte para a pasta do projeto e dê <strong>dois cliques</strong> no arquivo chamado <code>TREINAR_NOVA_IA.bat</code>.</li>
+    </ol>
+    <p>Uma tela preta vai aparecer indicando que o computador está "estudando" as novas fotos. Isso pode levar alguns minutos. Quando terminar, ele salva automaticamente um modelo novo e mais inteligente, e o aplicativo já vai começar a usar ele sozinho!</p>
+
+    <h2>🖥️ 5. Como Instalar em Outro Computador (Compartilhar o Projeto)</h2>
+    <p>Se você compactar (zipar) essa pasta e enviar para um colega ou professor, o computador dele precisará reconfigurar as ferramentas. O arquivo <code>INICIAR_PROGRAMA.bat</code> vai dar erro no computador de outra pessoa.</p>
+    <p>Para resolver isso, quando colocar o projeto em um computador novo pela primeira vez, siga estes passos:</p>
+    <ol>
+        <li>Certifique-se de que o computador novo tem o <strong>Python</strong> instalado (na hora de instalar o Python, marque a caixa <em>"Add Python to PATH"</em>).</li>
+        <li>Dê dois cliques no arquivo <strong><code>PRIMEIRO_USO_NO_PC_NOVO.bat</code></strong>.</li>
+        <li>Aguarde alguns minutos. Ele vai baixar todos os "motores" necessários, configurar tudo sozinho e abrir o programa no final!</li>
+        <li>A partir da segunda vez em diante, a pessoa pode voltar a usar o <strong><code>INICIAR_PROGRAMA.bat</code></strong> normalmente.</li>
+    </ol>
+
+    <hr>
+    <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
+        <em>Este software automatiza semanas de trabalho manual, permitindo foco na ciência e pesquisa ao invés da medição de rotina. Aproveite!</em>
+    </p>
+
+</body>
+</html>

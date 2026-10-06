@@ -1,0 +1,21 @@
+# Pastas do Python e Ambientes Virtuais
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Arquivos temporarios e logs
+.DS_Store
+*.log
+scratch/
+.system_generated/
+
+# Pastas de dados pesados
+dataset/
+
+# Relatorios gerados pelo sistema
+results/
+*.pdf
+*.xlsx
+*.csv
